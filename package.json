@@ -1,6 +1,6 @@
 {
   "name": "solat-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Malaysia-aware prayer times CLI",
   "bin": {
     "solat": "bin/solat.js"
