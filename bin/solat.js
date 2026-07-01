@@ -10,6 +10,19 @@ const today = new Date().toISOString().slice(0, 10).replace(/-/g, "");
 const locFile = path.join(dir, "location");
 const timingsFile = path.join(dir, `timings-${today}.json`);
 
+const METHODS = {
+  MY: 17, // JAKIM
+  SG: 11, // MUIS
+  ID: 20, // Kemenag
+  US: 2, CA: 2, // ISNA
+  SA: 4, // Umm al-Qura
+  EG: 5, // Egyptian Authority
+  PK: 1, // Karachi
+  TR: 13, // Diyanet
+  AE: 16, // Dubai
+};
+const DEFAULT_METHOD = 3; // MWL
+
 const prayers = [
   ["Fajr", "Subuh"],
   ["Dhuhr", "Zohor"],
@@ -37,7 +50,8 @@ async function refresh() {
     if (fs.existsSync(timingsFile)) fs.unlinkSync(timingsFile);
   }
   if (!fs.existsSync(timingsFile)) {
-    const url = `https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(loc.city)}&country=${loc.country}&method=17`;
+    const method = METHODS[loc.country] ?? DEFAULT_METHOD;
+    const url = `https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(loc.city)}&country=${loc.country}&method=${method}`;
     const json = await (await fetch(url)).json();
     fs.writeFileSync(timingsFile, JSON.stringify(json));
     for (const f of fs.readdirSync(dir)) {

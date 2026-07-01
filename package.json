@@ -1,6 +1,6 @@
 {
   "name": "solat-cli",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Malaysia-aware prayer times CLI",
   "keywords": ["solat", "prayer", "prayer-times", "azan", "islam", "muslim", "malaysia", "cli", "sembahyang", "waktu solat", "salah", "adhan"],
   "bin": {

@@ -1,6 +1,8 @@
 # solat-cli
 
-Malaysia-aware prayer times CLI. Auto-detects your location via IP.
+Prayer times CLI. Auto-detects your location via IP, works worldwide.
+
+Uses the correct calculation method per country (JAKIM for Malaysia, MUIS for Singapore, Kemenag for Indonesia, ISNA for US/Canada, Umm al-Qura for Saudi, etc.), falls back to Muslim World League (MWL) for anywhere else.
 
 ## Install
 
